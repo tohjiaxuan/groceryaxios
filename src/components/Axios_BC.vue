@@ -47,7 +47,7 @@ export default {
 }
 #chart{
     height:240px;
-    width:393px;
+    width:350px;
     border-style: solid;
     border-color:rgb(155, 84, 84);
     border-width: 1px;

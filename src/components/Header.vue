@@ -7,6 +7,7 @@
              <li><router-link to="/add" exact>Add Item</router-link></li>
              <li><router-link to="/list" exact>List</router-link></li>
              <li><router-link to="/axios" exact>Axios</router-link></li>
+             <li><router-link to="/api" exact>Call API</router-link></li>
           </ul>
         </nav>
   </div>
