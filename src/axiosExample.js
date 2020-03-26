@@ -26,7 +26,7 @@ export default{
           
         }
       }),
-    methods:{
+    methods:{ 
     
     fetchData : function(){
         axios.get('https://api.coindesk.com/v1/bpi/historical/close.json').then(response=>{

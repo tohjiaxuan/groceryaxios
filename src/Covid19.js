@@ -10,12 +10,12 @@ export default{
           labels:[],
           datasets: [
             {
-              label: 'PSI Readings-Singapore',
+              label: "Covid'19 Cases in US",
                data:[],
               //backgroundColor:['aqua','lightgreen','red','orange'],
               borderWidth:0.5,
-              borderColor:"orange",
-              backgroundColor:'orange',
+              borderColor:"blue",
+              backgroundColor:'blue',
               fill:false
             }
           ]
@@ -36,16 +36,26 @@ export default{
     methods:{
     
     fetchData : function(){
-        axios.get('https://api.data.gov.sg/v1/environment/psi').then(response=>{
-        this.results=response.data.items[0].readings.psi_twenty_four_hourly // only interested in 1st elm of the array
-        console.log(response.data)
-        console.log(this.results)
+        axios.get('https://covid19.soficoop.com/country/us').then(response=>{
+        this.results=response.data.snapshots
+        //console.log(response.data)
+        //console.log(this.results)
         for(let key in this.results){
-            this.chartdata.datasets[0].data.push(this.results[key])
-            this.chartdata.labels.push(key+'')
-            
+            this.chartdata.datasets[0].data.push(this.results[key].todayCases)
+            this.chartdata.labels.push(key+'')    
         }
         this.renderChart(this.chartdata,this.options)
+ 
+
+        // this.results=response.data.snapshots[0]
+        // console.log(response.data)
+        // console.log(this.results)
+        // for(let key in this.results){
+        //     this.chartdata.datasets[0].data.push(this.results[key])
+        //     this.chartdata.labels.push(key+'')
+            
+        // }
+        // this.renderChart(this.chartdata,this.options)
             
     })
     
